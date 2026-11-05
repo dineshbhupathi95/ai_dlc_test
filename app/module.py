@@ -1,34 +1,14 @@
-# Simple authentication module
+"""Simple login module."""
 
+# In-memory user store
 USERS = {
-    'alice': 'wonderland',
-    'bob': 'builder',
-    'charlie': 'chocolate'
+    "alice": "wonderland",
+    "bob": "builder",
 }
 
 def login(username: str, password: str) -> bool:
-    '''
-    Validate user credentials.
-
-    Parameters:
-        username (str): The username.
-        password (str): The password.
-
-    Returns:
-        bool: True if credentials are valid, False otherwise.
-    '''
+    """
+    Validate username and password against the USERS store.
+    Returns True if credentials match, False otherwise.
+    """
     return USERS.get(username) == password
-
-def get_user(username: str):
-    '''
-    Retrieve user information.
-
-    Parameters:
-        username (str): The username.
-
-    Returns:
-        dict or None: User info dict if exists, else None.
-    '''
-    if username in USERS:
-        return {'username': username, 'password': USERS[username]}
-    return None

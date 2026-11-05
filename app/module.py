@@ -1,14 +1,9 @@
-"""Simple login module."""
+USERS = {"alice": "wonderland", "bob": "builder"}
 
-# In-memory user store
-USERS = {
-    "alice": "wonderland",
-    "bob": "builder",
-}
-
-def login(username: str, password: str) -> bool:
-    """
-    Validate username and password against the USERS store.
-    Returns True if credentials match, False otherwise.
-    """
+def login(username, password):
+    """Return True if username and password match known users."""
     return USERS.get(username) == password
+
+def get_login_page():
+    """Return a simple representation of a login page."""
+    return "Login Page"

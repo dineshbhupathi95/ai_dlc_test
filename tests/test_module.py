@@ -1,11 +1,13 @@
-import pytest
-from app.module import login
+from app import module
 
 def test_login_success():
-    assert login("alice", "wonderland") is True
+    assert module.login("alice", "wonderland") is True
 
 def test_login_failure_wrong_password():
-    assert login("alice", "wrong") is False
+    assert module.login("alice", "wrong") is False
 
 def test_login_failure_unknown_user():
-    assert login("charlie", "chocolate") is False
+    assert module.login("charlie", "anything") is False
+
+def test_get_login_page():
+    assert module.get_login_page() == "Login Page"

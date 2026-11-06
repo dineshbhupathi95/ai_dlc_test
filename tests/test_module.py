@@ -1,13 +1,12 @@
-from app import module
+import pytest
+from app.module import app
 
-def test_login_success():
-    assert module.login("alice", "wonderland") is True
+def test_app_is_callable():
+    assert callable(app)
 
-def test_login_failure_wrong_password():
-    assert module.login("alice", "wrong") is False
-
-def test_login_failure_unknown_user():
-    assert module.login("charlie", "anything") is False
-
-def test_get_login_page():
-    assert module.get_login_page() == "Login Page"
+def test_login_page_contains_form():
+    content = app()
+    assert "<form" in content
+    assert 'name="username"' in content
+    assert 'name="password"' in content
+    assert 'value="Login"' in content

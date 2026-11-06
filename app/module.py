@@ -1,9 +1,15 @@
-USERS = {"alice": "wonderland", "bob": "builder"}
+def login_page():
+    return """<html>
+<head><title>Login</title></head>
+<body>
+<form action="/login" method="post">
+<label for="username">Username:</label>
+<input type="text" id="username" name="username"><br>
+<label for="password">Password:</label>
+<input type="password" id="password" name="password"><br>
+<input type="submit" value="Login">
+</form>
+</body>
+</html>"""
 
-def login(username, password):
-    """Return True if username and password match known users."""
-    return USERS.get(username) == password
-
-def get_login_page():
-    """Return a simple representation of a login page."""
-    return "Login Page"
+app = login_page
